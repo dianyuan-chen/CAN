@@ -3,17 +3,9 @@
 
 #include <hidef.h>
 #include "derivative.h"
+#include "CanMsg.h"
 
-typedef struct can_msg
-{
-
-    unsigned int id;
-    Bool RTR;
-    unsigned char data[8];
-    unsigned char len;
-} Can_Msg;
-
-void CAN_Init(void);
-Bool CAN_SendMsg(Can_Msg msg);
+void CAN_Init(void);    //初始化CAN
+Bool CAN_SendMsg(CanMsg msg);   //CAN发送
 
 #endif
