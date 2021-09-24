@@ -14,6 +14,7 @@ void CAN_Init()//CAN初始化
 	CAN0BTR0_SJW = 0;
 	CAN0BTR0_BRP = 1;
 	CAN0BTR1 = 0x1c;	//比特率:125Kbps
+
 	CAN0IDMR0 = 0xFF;
 	CAN0IDMR1 = 0xFF;
 	CAN0IDMR2 = 0xFF;
@@ -67,6 +68,6 @@ Bool CAN_SendMsg(CanMsg msg)//CAN0发送函数
 		*((&CAN0TXDSR0) + sp) = msg.data[sp]; //写入数据
 	}
 	CAN0TXDLR = msg.len;  //写入数据长度
-	CAN0TFLG = send_buf;  //清TXx标志（缓冲器准备发送）
+	CAN0TFLG = send_buf;  //清TXEx标志（缓冲器准备发送）
 	return TRUE;
 }

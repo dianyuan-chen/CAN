@@ -23,10 +23,7 @@ void main(void)
 #pragma CODE_SEG __NEAR_SEG NON_BANKED
 void interrupt VectorNumber_Vpit0 PIT0(void) //PIT中断函数
 {
-	if ((!CAN_SendMsg(CanMsg_1)) ||
-		(!CAN_SendMsg(CanMsg_2)) ||
-		(!CAN_SendMsg(CanMsg_3)) ||
-		(!CAN_SendMsg(CanMsg_4)))
+	if (!CanMsg_SendAll())	//若发送失败
 	{
 		LED = !LED;
 	}
