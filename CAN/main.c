@@ -1,32 +1,21 @@
 #include <hidef.h>
 #include "derivative.h"
-#include "config.h"
 #include "CAN.h"
-#include "CanMsg.h"
+#include "config.h"
+#include "PLL.h"
 #include "PIT.h"
+#include "CanMsg.h"
+#include "CanLcfg.h"
 
 void main(void)
 {
-	DisableInterrupts;  //关闭所有中断
-	PIT_Init();     //初始化PIT
+	DisableInterrupts;
+	PLL_Init();			//初始化锁相环
 	LED_DIR = 1;
 	LED = 1;
-	CAN_Init();     //初始化CAN
+	CAN_Init(&Lcfg);	//初始化CAN
+	PIT_Init();			//初始化PIT中断
 	EnableInterrupts;
 
-	for(;;)
-	{
-		;
-	}
-
+	for(;;) {}
 }
-#pragma CODE_SEG __NEAR_SEG NON_BANKED
-void interrupt VectorNumber_Vpit0 PIT0(void) //PIT中断函数
-{
-	if (!CanMsg_SendAll())	//若发送失败
-	{
-		LED = !LED;
-	}
-	PITTF_PTF0 = 1;
-}
-#pragma CODE_SEG DEFAULT

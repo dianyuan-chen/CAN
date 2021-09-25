@@ -1,16 +1,13 @@
 #ifndef __CANMSG_H
 #define __CANMSG_H
 
-#include <hidef.h>
-
-typedef struct can_msg
+typedef enum msg
 {
-	unsigned long id;		//id
-	Bool RTR;				//远程帧
-	unsigned char data[8];
-	unsigned char len;		//长度
-}CanMsg;
+	CanMsg1 = 0,
+	CanMsg2 = 1,
+	CanMsg3 = 3
+} CanMsg_Num;
 
-Bool CanMsg_SendAll(void);
+void CanMsg_Send(CanMsg_Num num);	//发送指定报文
 
 #endif

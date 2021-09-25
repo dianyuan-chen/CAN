@@ -1,10 +1,25 @@
 #ifndef __CAN_H
 #define __CAN_H
-
+#include "hidef.h"
 #include "derivative.h"
-#include "CanMsg.h"
 
-void CAN_Init(void);    //初始化CAN
+typedef struct can_msg
+{
+	unsigned long id;		//id
+	Bool RTR;				//远程帧
+	unsigned char data[Max_Len];
+	unsigned char len;
+} CanMsg;
+typedef struct can_init
+{
+	int bps;
+	unsigned char clock;
+	unsigned char sp;
+	unsigned char syn;
+} CAN_InitType;
+
+void CAN_Init(CAN_InitType *cfg);    //初始化CAN
 Bool CAN_SendMsg(CanMsg msg);   //CAN发送
+Bool CAN_GetMsg(CanMsg *msg);//CAN接收
 
 #endif

@@ -22,21 +22,28 @@ static CanMsg CanMsg_3 =
 	{'C', 'A', 'N', 'M', 'S', 'G', '_', '3'},
 	8
 };
-static CanMsg CanMsg_4 =
-{
-	0x18FF50E4,
-	0,
-	{'C', 'A', 'N', 'M', 'S', 'G', '_', '4'},
-	8
-};
 
-Bool CanMsg_SendAll()
+void CanMsg_Send(CanMsg_Num num)//发送指定报文
 {
-	if ((!CAN_SendMsg(CanMsg_1)) ||
-		(!CAN_SendMsg(CanMsg_2)) ||
-		(!CAN_SendMsg(CanMsg_3)) ||
-		(!CAN_SendMsg(CanMsg_4)))
+	if (num == CanMsg1)
 	{
-		return FALSE;//发送失败
+		if(CAN_SendMsg(CanMsg_1))
+		{
+			;
+		}
+	}
+	else if (num == CanMsg2)
+	{
+		if(CAN_SendMsg(CanMsg_2))
+		{
+			;
+		}
+	}
+	else if (num == CanMsg3)
+	{
+		if(CAN_SendMsg(CanMsg_3))
+		{
+			;
+		}
 	}
 }
