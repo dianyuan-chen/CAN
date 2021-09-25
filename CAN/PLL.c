@@ -10,7 +10,6 @@ void PLL_Init(void)
 	REFDV = 0x41;
 	POSTDIV = 0x00;           //PLL:64M;BUS:32M
 	PLLCTL_PLLON = 1;         //打开PLL
-
 	_asm(nop);
 	_asm(nop);                //等待连两个机器周期
 	while (CRGFLG_LOCK == 0);  //等待PLL稳定

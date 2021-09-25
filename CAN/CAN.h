@@ -17,6 +17,12 @@ typedef struct can_init
 	unsigned char sp;
 	unsigned char syn;
 } CAN_InitType;
+typedef enum msg
+{
+	CanMsg1 = 0,
+	CanMsg2 = 1,
+	CanMsg3 = 2
+} CanMsg_Num;
 
 void CAN_Init(CAN_InitType *cfg);    //初始化CAN
 Bool CAN_SendMsg(CanMsg msg);   //CAN发送

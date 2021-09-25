@@ -17,5 +17,8 @@ void main(void)
 	PIT_Init();			//初始化PIT中断
 	EnableInterrupts;
 
-	for(;;) {}
+	for(;;)
+	{
+		;
+	}
 }

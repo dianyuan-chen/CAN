@@ -1,5 +1,4 @@
 #include "CanMsg.h"
-#include "CAN.h"
 
 static CanMsg CanMsg_1 =
 {
@@ -27,21 +26,21 @@ void CanMsg_Send(CanMsg_Num num)//发送指定报文
 {
 	if (num == CanMsg1)
 	{
-		if(CAN_SendMsg(CanMsg_1))
+		if(!CAN_SendMsg(CanMsg_1))
 		{
 			;
 		}
 	}
 	else if (num == CanMsg2)
 	{
-		if(CAN_SendMsg(CanMsg_2))
+		if(!CAN_SendMsg(CanMsg_2))
 		{
 			;
 		}
 	}
 	else if (num == CanMsg3)
 	{
-		if(CAN_SendMsg(CanMsg_3))
+		if(!CAN_SendMsg(CanMsg_3))
 		{
 			;
 		}

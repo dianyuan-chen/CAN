@@ -5,14 +5,11 @@
 extern void CAN_SendCallBack(void);
 extern void CAN_GetCallBack(void);
 
-
 void CAN_Init(CAN_InitType *cfg)	//初始化CAN
 {
 	if (CAN0CTL0_INITRQ == 0)
 		CAN0CTL0_INITRQ = 1;
 	while (CAN0CTL1_INITAK == 0);
-
-
 
 	if (cfg->clock == OSC)		//选择系统时钟
 	{
@@ -22,7 +19,6 @@ void CAN_Init(CAN_InitType *cfg)	//初始化CAN
 	{
 		CLKSEL_PLLSEL = 1;
 	}
-
 
 	CAN0BTR0_SJW = cfg->syn - 1;	//同步跳转宽度
 
