@@ -1,9 +1,8 @@
 #include "PLL.h"
 #include "derivative.h"
 
-void PLL_Init(void)
+void PLL_Init(void)	//初始化锁相环
 {
-	//初始化锁相环
 	CLKSEL_PLLSEL = 0;        //内部总线时钟来源于晶振
 	PLLCTL_PLLON = 0;         //关闭PLL
 	SYNR = 0x47;
@@ -12,6 +11,9 @@ void PLL_Init(void)
 	PLLCTL_PLLON = 1;         //打开PLL
 	_asm(nop);
 	_asm(nop);                //等待连两个机器周期
-	while (CRGFLG_LOCK == 0);  //等待PLL稳定
+	while (CRGFLG_LOCK == 0)  //等待PLL稳定
+	{
+		;
+	}
 	CLKSEL_PLLSEL = 1;        //选择PLL作为时钟源
 }
