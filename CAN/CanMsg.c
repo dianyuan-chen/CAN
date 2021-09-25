@@ -22,7 +22,7 @@ static CanMsg CanMsg_3 =
 	8
 };
 
-void CanMsg_Send(CanMsg_Num num)//发送指定报文
+void CanMsg_Send(Can_MsgNum num)//发送指定报文
 {
 	if (num == CanMsg1)
 	{
