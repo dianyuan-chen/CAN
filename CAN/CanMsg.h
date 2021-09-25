@@ -1,6 +1,8 @@
 #ifndef __CANMSG_H
 #define __CANMSG_H
 
-void CanMsg_Send(Can_MsgNum num);	//发送指定报文
+#include "CAN.h"
+
+void CanMsg_Send(CAN_MsgSel msg_num);	//发送指定报文
 
 #endif

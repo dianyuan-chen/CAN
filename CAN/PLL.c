@@ -13,7 +13,7 @@ void PLL_Init(void)	//初始化锁相环
 	_asm(nop);                //等待连两个机器周期
 	while (CRGFLG_LOCK == 0)  //等待PLL稳定
 	{
-		;
+
 	}
 	CLKSEL_PLLSEL = 1;        //选择PLL作为时钟源
 }
