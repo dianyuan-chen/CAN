@@ -3,7 +3,7 @@
 #include "PLL.h"
 #include "derivative.h"
 
-CAN_InitType CAN_InitLcfg =		//初始化CAN配置
+CAN_InitType CAN_InitLcfg =		//鲁玫脢录禄炉CAN脜盲脰脙
 {
 	CAN_Bps_125,
 	CAN_CLK_PLL,
@@ -11,7 +11,7 @@ CAN_InitType CAN_InitLcfg =		//初始化CAN配置
 	1
 };
 
-void CAN_SendCallBack(void)//1ms中断一次，每次Tick+1，与上次发送时间差33、66、100时分别发送相应报文，3个报文发送完成后lastTick=Tick
+void CAN_SendCallBack(void)//1ms脰脨露脧脪禄麓脦拢卢脙驴麓脦Tick+1拢卢脫毛脡脧麓脦路垄脣脥脢卤录盲虏卯33隆垄66隆垄100脢卤路脰卤冒路垄脣脥脧脿脫娄卤篓脦脛拢卢3赂枚卤篓脦脛路垄脣脥脥锚鲁脡潞贸lastTick=Tick
 {
 	static long can_send_tick = 0;
 	static long can_send_last_tick = 0;
@@ -31,7 +31,7 @@ void CAN_SendCallBack(void)//1ms中断一次，每次Tick+1，与上次发送时间差33、66、10
 	else if (time >= 100)
 	{
 		CanMsg_Send(CAN_Msg3);
-		last_tick = tick;
+		can_send_last_tick = can_send_tick;
 	}
 	else
 	{
@@ -45,9 +45,9 @@ void CAN_GetCallBack(void)
 {
 	CAN_MsgType msg_get;
 
-	if (CAN_GetMsg(&msg_get))             //判断是否有合法的标准帧收到
+	if (CAN_GetMsg(&msg_get))             //脜脨露脧脢脟路帽脫脨潞脧路篓碌脛卤锚脳录脰隆脢脮碌陆
 	{
-		if (!CAN_SendMsg(msg_get))	//收到后发出去
+		if (!CAN_SendMsg(msg_get))	//脢脮碌陆潞贸路垄鲁枚脠楼
 		{
 
 		}

@@ -20,7 +20,7 @@ void CAN_Init(CAN_InitType *cfg)	//初始化CAN
 	{
 		CLKSEL_PLLSEL = 0;
 	}
-	else (cfg->clock == CAN_CLK_PLL)	//选择PLL时钟
+	else	//选择PLL时钟
 	{
 		CLKSEL_PLLSEL = 1;
 	}
