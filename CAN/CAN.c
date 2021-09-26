@@ -1,5 +1,4 @@
 #include "CAN.h"
-#include "config.h"
 #include "PLL.h"
 
 extern void CAN_SendCallBack(void);

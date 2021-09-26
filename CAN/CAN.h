@@ -3,6 +3,7 @@
 
 #include "hidef.h"
 #include "derivative.h"
+#include "config.h"
 
 typedef enum _CAN_ClkSel  	//初始化时钟选择
 {

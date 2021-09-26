@@ -1,5 +1,5 @@
-#ifndef __PIT_H
-#define __PIT_H
+#ifndef __PLL_H
+#define __PLL_H
 
 void PLL_Init(void);
 
